@@ -1,5 +1,9 @@
 package by.tc.task03.main.calculator;
 
+import by.tc.task03.main.calculator.entity.LexemeBuffer;
+import by.tc.task03.main.calculator.servise.LexemeCalculator;
+import by.tc.task03.main.calculator.servise.LexemeXMLParser;
+
 public class CalculatorImpl implements Calculatable{
 
     CalculatorImpl() {}
@@ -7,11 +11,11 @@ public class CalculatorImpl implements Calculatable{
     @Override
     public double calculate (String equation) {
 
-        LexemeXMLParser lexemeRepository = new LexemeXMLParser(equation);
-        LexemeBuffer lexemeBuffer = new LexemeBuffer(lexemeRepository.getManyLexemas());
-        LexemeCalculator counting = new LexemeCalculator();
+        LexemeXMLParser lexemeRepository = LexemeXMLParser.getInstance(equation);
+        LexemeBuffer lexemeBuffer = new LexemeBuffer(lexemeRepository.getLexemes());
+        LexemeCalculator calculator = LexemeCalculator.getInstance();
 
-        return counting.expr(lexemeBuffer);
+        return calculator.solve(lexemeBuffer);
     }
 
 }

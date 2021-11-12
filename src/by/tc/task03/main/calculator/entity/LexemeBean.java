@@ -1,4 +1,4 @@
-package by.tc.task03.main.calculator;
+package by.tc.task03.main.calculator.entity;
 
 public class LexemeBean {
     private LexemeType type;

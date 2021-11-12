@@ -1,19 +1,19 @@
 package by.tc.task03.main.calculator;
 
-public class Factory {
-    private static Factory instance = new Factory();
+public class CalculatorFactory {
+    private static CalculatorFactory instance = new CalculatorFactory();
 
     private final Calculatable calculator = new CalculatorImpl();
 
-    private Factory() {};
+    private CalculatorFactory() {};
 
     public Calculatable getCalculator() {
         return calculator;
     }
 
-    public static Factory getInstance() {
+    public static CalculatorFactory getInstance() {
         if(instance == null) {
-            instance = new Factory();
+            instance = new CalculatorFactory();
         }
         return instance;
     }
