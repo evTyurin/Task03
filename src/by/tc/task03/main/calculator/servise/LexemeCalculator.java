@@ -8,7 +8,7 @@ public class LexemeCalculator {
 
     private static LexemeCalculator instance;
 
-    LexemeCalculator() {}
+    private LexemeCalculator() {}
 
     public static LexemeCalculator getInstance() {
         instance = new LexemeCalculator();

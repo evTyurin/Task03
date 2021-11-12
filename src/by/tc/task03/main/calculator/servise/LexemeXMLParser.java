@@ -25,19 +25,19 @@ public class LexemeXMLParser {
         return instance;
     }
 
-    LexemeXMLParser(String equation) {
-        this.lexemes = lexAnalyze(equation);
+    private LexemeXMLParser(String equation) {
+        this.lexemes = lexemeAnalyze(equation);
     }
 
     public List getLexemes() {
         return lexemes;
     }
 
-    private List<LexemeBean> lexAnalyze(String expText) {
+    private List<LexemeBean> lexemeAnalyze(String equation) {
         int position = 0;
         ArrayList<LexemeBean> lexemes = new ArrayList<>();
-        while (position< expText.length()) {
-            char character = expText.charAt(position);
+        while (position< equation.length()) {
+            char character = equation.charAt(position);
             switch (character) {
                 case LEFT_BRACKET:
                     lexemes.add(new LexemeBean(LexemeType.LEFT_BRACKET, character));
@@ -69,10 +69,10 @@ public class LexemeXMLParser {
                         do {
                             sb.append(character);
                             position++;
-                            if (position >= expText.length()) {
+                            if (position >= equation.length()) {
                                 break;
                             }
-                            character = expText.charAt(position);
+                            character = equation.charAt(position);
                         } while (character <= MAX_VALUE && character >= MIN_VALUE);
                         lexemes.add(new LexemeBean(LexemeType.NUMBER, sb.toString()));
                     } else {
