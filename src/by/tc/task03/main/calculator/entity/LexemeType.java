@@ -11,6 +11,4 @@ public enum LexemeType {
     NUMBER,
     END_OF_EQUATION;
 
-    LexemeType() {}
-
 }

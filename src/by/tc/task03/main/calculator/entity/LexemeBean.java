@@ -1,8 +1,12 @@
 package by.tc.task03.main.calculator.entity;
 
-public class LexemeBean {
+import java.io.Serializable;
+
+public class LexemeBean implements Serializable {
     private LexemeType type;
     private String value;
+
+    public LexemeBean() {};
 
     public LexemeBean(LexemeType type, String value) {
         this.type = type;

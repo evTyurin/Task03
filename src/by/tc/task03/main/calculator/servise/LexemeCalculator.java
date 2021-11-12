@@ -8,12 +8,12 @@ public class LexemeCalculator {
 
     private static LexemeCalculator instance;
 
+    LexemeCalculator() {}
+
     public static LexemeCalculator getInstance() {
         instance = new LexemeCalculator();
         return instance;
     }
-
-    LexemeCalculator() {}
 
     public double solve(LexemeBuffer lexemes) {
         LexemeBean lexeme = lexemes.next();
